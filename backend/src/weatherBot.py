@@ -10,6 +10,8 @@ def weatherBot(latitude, longitude):
 
     currentWeather = data["current_weather"]
     windSpeed_array = data["hourly"]["windspeed_10m"]
+    time = data["hourly"]["time"]
+
     averageSpeed = sum(windSpeed_array) / len(windSpeed_array)
     averageSpeed_formatado = "{:.1f}".format(averageSpeed)
 
@@ -20,6 +22,7 @@ def weatherBot(latitude, longitude):
     final_result = {
         "averageSpeed": averageSpeed_formatado,
         "currentWeather": currentWeather,
+        "time": time,
         "parameters": {
             "K": format(params["K"], '.5f'),
             "A": format(params["A"], '.5f')

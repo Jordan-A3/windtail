@@ -1,10 +1,13 @@
 import matplotlib.pyplot as plt
+import matplotlib
 from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 import pandas as pd
 import csv
 
 def powerCalculatorBot(Vi, Vn, Vf, Pn, Vv):
+    matplotlib.use('Agg')
+
     Va = (Vi + Vn) / 2
     A = Pn * Vi * ((Va - 2 * Vn * (Va / Vn) ** 3) / (2 * (Vn - Va) ** 2))
     B = Pn * ((Vn - 3 * Va + 4 * Va * (Va / Vn) ** 3) / (2 * (Vn - Va) ** 2))
@@ -40,23 +43,26 @@ def powerCalculatorBot(Vi, Vn, Vf, Pn, Vv):
     windPower = pd.read_csv('windpower.csv')
     windPower.columns = ["Velocidade do vento", "Potencia"]
 
-    sns.scatterplot(data=windPower, x="Velocidade do vento", y="Potencia")
-    plt.savefig('src/graphic/power2d.png')
+    xs = windPower['Velocidade do vento']
+    zs = windPower['Potencia']
 
-    plt.clf()
+    # plt.plot(xs, zs)
+
+    plt.scatter(xs, zs)
+
+    plt.savefig('src/graphic/power2d.png')
 
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    x = windPower['Velocidade do vento']
-    z = windPower['Potencia']
-
     ax.set_xlabel("Velocidade do vento")
-    ax.set_ylabel("Potencia")
+    ax.set_zlabel("Potencia")
 
-    ax.scatter(x, z, z)
+    ax.scatter(xs, xs, zs)
 
     plt.savefig('src/graphic/power3d.png')
+
+    plt.clf()
 
     print('''
     Resultado de Va = {:.5f}

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.Calculator {
+    width: 200vh;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    font: 400 14px Poppins, sans-serif;
+}
+
+.graphics {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-power {
+    width: 500px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+img {
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+input {
+    flex: 1;
+    background: #f0f0f5;
+    border-radius: 8px;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #6c6c80;
+}
+
+button {
+    width: 260px;
+    height: 56px;
+    background: #252527;
+    border-radius: 8px;
+    color: #fff;
+    align-self: center;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}

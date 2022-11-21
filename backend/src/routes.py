@@ -33,20 +33,26 @@ def power_calculator():
     Vf = body_data['Vf']
     Pn = body_data['Pn']
 
-    epot = body_data['epot']
-
     powerCalculatorResponse = powerCalculatorBot.powerCalculatorBot(Vi, Vn, Vf, Pn, Vv)
-    capacityFactorResponse = capacityFactorBot.capacityFactorBot(epot, Pn)
+    # capacityFactorResponse = capacityFactorBot.capacityFactorBot(epot, Pn)
 
     response = {
         "power": powerCalculatorResponse,
-        "capacity": capacityFactorResponse
+        # "capacity": capacityFactorResponse
     }
 
     return jsonify(response)
 
 @app.route('/graphic/prob.png')
-def send_report():
+def get_prob_image():
     return send_from_directory('graphic', 'prob.png')
+
+@app.route('/graphic/power3d.png')
+def get_power3d_image():
+    return send_from_directory('graphic', 'power3d.png')
+
+@app.route('/graphic/power2d.png')
+def get_power2d_image():
+    return send_from_directory('graphic', 'power2d.png')
 
 app.run(host='0.0.0.0')

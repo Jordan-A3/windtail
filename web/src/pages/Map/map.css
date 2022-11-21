@@ -1,0 +1,23 @@
+.Map {
+    height:500px;
+    width:500px;
+    border:1px solid black;
+}
+
+img {
+    margin-top: 15px
+}
+
+a {
+    width: 260px;
+    height: 56px;
+    text-decoration: none;
+    color: #252527;
+    align-self: center;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
