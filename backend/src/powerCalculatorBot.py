@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import matplotlib
-from mpl_toolkits.mplot3d import Axes3D
-import seaborn as sns
 import pandas as pd
 import csv
 
@@ -48,9 +46,9 @@ def powerCalculatorBot(Vi, Vn, Vf, Pn, Vv):
 
     # plt.plot(xs, zs)
 
-    plt.scatter(xs, zs)
+    plt.scatter(xs, zs, s=0.5)
 
-    plt.savefig('src/graphic/power2d.png')
+    plt.savefig('graphic/power2d.png')
 
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -58,9 +56,9 @@ def powerCalculatorBot(Vi, Vn, Vf, Pn, Vv):
     ax.set_xlabel("Velocidade do vento")
     ax.set_zlabel("Potencia")
 
-    ax.scatter(xs, xs, zs)
+    ax.scatter(xs, xs, zs, s=0.5)
 
-    plt.savefig('src/graphic/power3d.png')
+    plt.savefig('graphic/power3d.png')
 
     plt.clf()
 

@@ -43,15 +43,16 @@ def power_calculator():
 
     return jsonify(response)
 
-@app.route('/graphic/prob.png')
+@app.route('/graphic/prob.png', methods=['GET'])
 def get_prob_image():
     return send_from_directory('graphic', 'prob.png')
+    # return jsonify({"message": 'A'})
 
-@app.route('/graphic/power3d.png')
+@app.route('/graphic/power3d.png', methods=['GET'])
 def get_power3d_image():
     return send_from_directory('graphic', 'power3d.png')
 
-@app.route('/graphic/power2d.png')
+@app.route('/graphic/power2d.png', methods=['GET'])
 def get_power2d_image():
     return send_from_directory('graphic', 'power2d.png')
 

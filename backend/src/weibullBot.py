@@ -1,18 +1,20 @@
-import weibull
 import matplotlib
+from reliability.Distributions import Weibull_Distribution
+from reliability.Fitters import Fit_Weibull_2P
 import matplotlib.pyplot as plt
 
 def weibullBot(windSpeed):
     matplotlib.use('Agg')
-    analysis = weibull.Analysis(windSpeed)
 
-    analysis.fit(method='mle')
-    analysis.pdf(show=False, file_name='src/graphic/prob.png', watermark_text="3° S.E.R")
-    plt.clf()
+    fit = Fit_Weibull_2P(failures=windSpeed, show_probability_plot=False, print_results=False)
+
+    dist = Weibull_Distribution(alpha=fit.alpha, beta=fit.beta)
+    dist.PDF()  # this creates the plot of the PDF
+    plt.show()
 
     weibull_stats = {
-        "K": analysis.eta,
-        "A": analysis.beta
+        "K": fit.alpha,
+        "A": fit.beta
     }
 
     return weibull_stats

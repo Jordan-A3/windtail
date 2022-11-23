@@ -27,6 +27,7 @@ function Map() {
     await api_back.post('', data)
       .then(async response => {
         setWeatherData(response.data)
+        console.log(response.data)
         await localStorage.setItem('windSpeed', JSON.stringify(response.data.windSpeed))
       })
   };
@@ -86,12 +87,12 @@ function Map() {
             <h2>Parâmetros de análise</h2>
             <div>
               <span><b>Parâmetro de forma: </b></span>
-              <span>{weatherData.parameters.K}°C</span>
+              <span>{weatherData.parameters.K}</span>
             </div>
 
             <div>
               <span><b>Parâmetro de escala: </b></span>
-              <span>{weatherData.parameters.A}°C</span>
+              <span>{weatherData.parameters.A}</span>
             </div>
 
             <img 
